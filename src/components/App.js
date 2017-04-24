@@ -1,30 +1,32 @@
 import React, { Component } from "react";
 import Marking from "../algorithm/Marking"
 import minimax from "../algorithm/MiniMax"
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AppBar from "material-ui/AppBar";
 import Game from "./Game"
-import './App.css'
+import BottomBar from "./BottomBar"
 
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            //AI
-            [Marking.X]: {
-                onTurn: (game, marking) => {
-                    var date = Date.now();
-                    var result = game.emptyCells.length >= 9 ? game.play(Math.floor(Math.random() * 8)) : minimax(marking, game)
-                    console.log(Date.now() - date);
-                    return result;
-                }
-            },
-            [Marking.O]: {
-                onClick: (game, marking, choice) => game.play(choice, marking)
-            }
+    state = {
+        //AI
+        [Marking.X]: {
+            onTurn: (game, marking) => game.emptyCells.length >= 9 ? game.play(Math.floor(Math.random() * 8)) : minimax(marking, game)
+        },
+        [Marking.O]: {
+            onClick: (game, marking, choice) => game.play(choice, marking)
         }
-    }
+    };
 
     render() {
-        return <Game players={this.state}/>
+        return (
+            <MuiThemeProvider>
+                <div>
+                    <AppBar title="Tic Tac Toe" showMenuIconButton={false}/>
+                    <Game players={this.state}/>
+                    <BottomBar/>
+                </div>
+            </MuiThemeProvider>
+        )
     }
 }
 
