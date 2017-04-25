@@ -21,19 +21,29 @@ class Board {
     }
 
     get winners() {
-        if (this.emptyCells.length > 4)
-            return [];
-        let total;
-        for (let win of wins) {
-            total = this.squares[win[0]] + this.squares[win[1]] + this.squares[win[2]];
-            if (total === 3 || total === -3) break;
-        }
+        const output = {gameOver: false, squares: [], markings: []};
+        if (this.emptyCells.length <= 4) {
+            let total;
+            for (let win of wins) {
+                total = this.squares[win[0]] + this.squares[win[1]] + this.squares[win[2]];
+                if (total === 3 || total === -3) {
+                    output.squares = win;
+                    break;
+                }
+            }
 
-        const marking = Marking.match(total / 3);
-        if (marking === null || marking === Marking.EMPTY)
-            return this.emptyCells.length ===  0 ? [Marking.O, Marking.X] : [];
-        else
-            return [marking];
+            const marking = Marking.match(total / 3);
+            if (marking === null || marking === Marking.EMPTY) {
+                if (this.emptyCells.length === 0) {
+                    output.markings = [Marking.O, Marking.X];
+                    output.gameOver = true;
+                }
+            } else {
+                output.gameOver = true;
+                output.markings =  [marking];
+            }
+        }
+        return output;
     }
 
     play(cell, marking) {

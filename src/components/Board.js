@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import Paper from 'material-ui/Paper';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 import './Board.css'
 
 function Square(props) {
-    return <button className={`square ${props.value != null ? props.value.toLowerCase() : ""}`} onClick={() => props.onClick()}/>
+    let symbol = props.value != null ? props.value.toLowerCase() : "";
+    return (
+        <CSSTransitionGroup transitionName="square">
+            <button key={symbol} className={`square ${symbol}`} onClick={() => props.onClick()}/>
+        </CSSTransitionGroup>
+    )
 }
 
 

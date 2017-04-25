@@ -13,10 +13,11 @@ class Game extends Component {
 
     updateBoard(board) {
         const winners = board.winners, currentPlayer = this.state.currentPlayer.inverse, player = this.props.players[currentPlayer];
-        if (winners.length <= 0 && board.equals(this.state.board))
+        if (winners.gameOver <= 0 && board.equals(this.state.board))
             return;
 
-        if (winners.length >= 1) {
+        console.log(winners);
+        if (winners.gameOver >= 1) {
             console.log("Game Over!");
             this.setState({currentPlayer: null, board: board});
             return;

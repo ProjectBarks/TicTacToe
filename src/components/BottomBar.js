@@ -5,7 +5,7 @@ import FontIcon from 'material-ui/FontIcon';
 
 class BottomBar extends Component {
 
-    state = {selectedIndex: 0};
+    state = {selectedIndex: 1};
 
     select = (index) => this.setState({selectedIndex: index});
 

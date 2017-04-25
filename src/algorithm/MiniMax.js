@@ -1,9 +1,9 @@
 function minimax(marking, game, maximize = true, parent = true, depth = 0) {
     let winners = game.winners;
-    if (winners.length >= 1) {
+    if (winners.gameOver) {
         if (parent) return game;
-        else if (winners.length >= 2) return 0;
-        else if (winners[0] === marking) return 10 - depth;
+        else if (winners.markings.length >= 2) return 0;
+        else if (winners.markings[0] === marking) return 10 - depth;
         else return depth - 10;
     }
 

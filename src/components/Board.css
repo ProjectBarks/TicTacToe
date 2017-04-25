@@ -9,7 +9,7 @@
     border-bottom: 4px solid black;
 }
 
-.square:nth-child(even) {
+.board-row > span:nth-child(even) .square {
     border-left: 3px solid black;
     border-right: 4px solid black;
 }
@@ -28,11 +28,6 @@
     opacity: 0.5;
 }
 
-@keyframes example {
-    from {font-size: 0;}
-    to {font-size: 18vmin;}
-}
-
 .square {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -46,7 +41,6 @@
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-    font-size: 18vmin;
     border: 0;
     background: #fff;
     float: left;
@@ -58,7 +52,23 @@
     width: 20vw;
     max-width: 20vh;
     max-height: 20vh;
-    animation: example 1s normal forwards ease-in-out;
+    transition: font 0.3s ease-in-out;
+    font-size: 18vmin;
+}
+
+.square-enter {
+    font-size: 0;
+}
+
+.square-enter.square-enter-active {
+    font-size: 18vmin;
+}
+
+.square-leave {
+    display: none;
+    visibility: hidden;
+    height: 0;
+    width: 0;
 }
 
 .square::after {
