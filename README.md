@@ -2,7 +2,7 @@
 <p align="center">
   <img src="/preview.gif" alt="A preview of the game of Tic Tac Toe" height="200"/>
 </p>
-This is a ReactJS implemention of a classic came — TicTacToe. While it was built as a fun side project exploring the MiniMax algorithm it also was a fun way to try out some new React libraries. If you are interested in trying the game and its primitive compleition it is available [here](http://brandonbarker.me/TicTacToe/).
+This is a ReactJS implemention of a classic came — TicTacToe. While it was built as a fun side project exploring the MiniMax algorithm it also was a fun way to try out some new React libraries. If you are interested in trying the game and its primitive compleition it is available [here](http://brandonbarker.me/TicTacToe/) .
 
 ### Features
 
