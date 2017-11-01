@@ -44,12 +44,12 @@
     border: 0;
     background: #fff;
     float: left;
-    height: 20vw;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
     width: 20vw;
+    height: 20vw;
     max-width: 20vh;
     max-height: 20vh;
     transition: font 0.3s ease-in-out;

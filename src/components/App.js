@@ -5,6 +5,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import Game from "./Game"
 import BottomBar from "./BottomBar"
+import "./App.css"
 
 class App extends Component {
     state = {
